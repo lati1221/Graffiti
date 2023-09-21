@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+#wrap {
+	width: 1200px;
+	height: 800px;
+	margin: 0 auto;
+}
+
+#title {
+	text-decoration: underline;
+	text-decoration-color: blueviolet;
+	
+}
+
+header {
+	height: 70px;
+	background-color: #dddddd;
+}
+
+
+.contents > .input-box {
+	width: 400px;
+}
+
+#joinBtn {
+	background-color:blueviolet;
+}
+
+footer {
+	height: 70px;
+	background-color: #dddddd;
+}
