@@ -12,7 +12,7 @@
 <body>
 
 	<div id="wrap">
-		<header class="d-flex align-items-center justify-content-between">
+		<header>
 		</header>
 		<section class="contents d-flex justify-content-center">
 			<div class="input-box my-5">
@@ -25,7 +25,72 @@
 				<button type="button" class="btn btn-secondary btn-block mt-3" id="joinBtn">가입</button>
 			</div>
 		</section>
+		<footer>
+		</footer>
 	</div>
+	
+	<script>
+  		$(document).ready(function() {
+  			
+  			$("#joinBtn").on("click", function() {
+  				let loginId = $("#loginIdInput").val();
+  				let password = $("#passwordInput").val();
+  				let passwordConfirm = $("#passwordConfirmInput").val();
+  				let name = $("#nameInput").val();
+  				let email = $("#emailInput").val();
+  				
+  				if(loginId == "") {
+  					alert("아이디를 입력하세요");
+  					return ;
+  				}
+  				
+  				if(password == "") {
+  					alert("비밀번호를 입력하세요");
+  					return ;
+  				}
+  				
+  				if(password != passwordConfirm) {
+  					alert("비밀번호가 일치하지 않습니다");
+  					return;
+  				}
+  				
+  				if(name == "") {
+  					alert("이름을 입력하세요");
+  					return;
+  				}
+  				
+  				if(email == "") {
+  					alert("이메일을 입력하세요");
+  					return;
+  				}
+  				
+  				$.ajax({
+  					type:"post"
+  					, url:"/user/join"
+  					, data:{"loginId":loginId, "password":password, "name":name, "email":email}
+  					, success:function(data) {
+  						
+  						if(data.result == "success") {
+  							location.href = "/user/login-view";
+  						} else {
+  							alert("회원가입 실패!!");
+  						}
+  					}
+  					, error:function() {
+  						alert("회원가입 에러!!");
+  					}
+  				});
+  				
+  			});
+  			
+  			
+  			
+  		});
+  	
+  	
+  	</script>
+  	
+  	
 
 	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

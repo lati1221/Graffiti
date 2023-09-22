@@ -9,12 +9,13 @@
 #title {
 	text-decoration: underline;
 	text-decoration-color: blueviolet;
+	color:blueviolet;
 	
 }
 
 header {
 	height: 70px;
-	background-color: #dddddd;
+	
 }
 
 
@@ -28,5 +29,6 @@ header {
 
 footer {
 	height: 70px;
-	background-color: #dddddd;
+	color:blueviolet;
+	
 }

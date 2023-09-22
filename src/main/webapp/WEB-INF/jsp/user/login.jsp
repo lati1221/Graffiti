@@ -12,11 +12,11 @@
 <body>
 
 <div id="wrap">
-		<header class="d-flex align-items-center justify-content-between">
+		<header>
 		</header>
 		<section class="contents d-flex justify-content-center">
 			<div class="input-box my-5">
-				<div id="title" class="text-center"><h1><font color="blueviolet">GRAFFITI</font></h1></div>
+				<div id="title" class="text-center"><h1>GRAFFITI</h1></div>
 				<input type="text" placeholder="아이디(유저명)" class="form-control mt-4" id="loginIdInput">
 				<input type="password" placeholder="비밀번호" class="form-control mt-2" id="passwordInput">
 				<button type="button" class="btn btn-block mt-3 text-white" id="joinBtn">로그인</button>
@@ -24,9 +24,53 @@
 					<a href="/user/join-view">회원가입</a>
 				</div>
 			</div>
-			
 		</section>
+		<footer></footer>
 	</div>
+	<script>
+	$(document).ready(function() {
+		
+		$("#loginBtn").on("click", function() {
+			let loginId = $("#loginIdInput").val();
+			let password = $("#passwordInput").val();
+			
+			if(loginId == "") {
+				alert("아이디를 입력하세요");
+				return;
+			}
+			
+			if(password == "") {
+				alert("비밀번호를 입력하세요");
+				return;
+			}
+			
+			$.ajax({
+				type:"post"
+				, url:"/user/login"
+				, data:{"loginId":loginId, "password":password}
+				, success:function(data) {
+					
+					if(data.result == "success") {
+						location.href = "/post/list-view";
+					} else {
+						alert("아이디, 비밀번호를 확인해주세요");
+					}
+				}
+				, error:function() {
+					alert("로그인 에러");
+				}
+				
+			});
+			
+		});
+		
+	});
+
+
+
+
+
+</script>
 
 
 
