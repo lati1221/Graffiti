@@ -2,8 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <header class="d-flex align-items-center justify-content-between">
-			<h1 class="ml-3">Memo</h1>
+			<h1 class="ml-3">GRAFFITI</h1>
 			<c:if test="${not empty userId }">
-			<div class="mr-3">${userName }님 <a href="/user/logout">로그아웃</a></div>
+			<div class="mr-4">${userName }님 <a href="/user/logout">로그아웃</a></div>
 			</c:if>
 		</header>

@@ -22,12 +22,17 @@
 				<input type="password" placeholder="비밀번호 확인" class="form-control mt-2" id="passwordConfirmInput">
 				<input type="text" placeholder="이름" class="form-control mt-2" id="nameInput">
 				<input type="text" placeholder="이메일" class="form-control mt-2" id="emailInput">
-				<button type="button" class="btn btn-secondary btn-block mt-3" id="joinBtn">가입</button>
+				<button type="submit" class="btn btn-secondary btn-block mt-3" id="joinBtn">가입</button>
 			</div>
 		</section>
 		<footer>
 		</footer>
 	</div>
+	
+	
+	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	
 	<script>
   		$(document).ready(function() {
@@ -71,7 +76,7 @@
   					, success:function(data) {
   						
   						if(data.result == "success") {
-  							location.href = "/user/login-view";
+  							location.href = "/user/login";
   						} else {
   							alert("회원가입 실패!!");
   						}
@@ -92,8 +97,6 @@
   	
   	
 
-	<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	
   </body>
 </html>

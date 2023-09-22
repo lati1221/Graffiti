@@ -19,16 +19,29 @@
 				<div id="title" class="text-center"><h1>GRAFFITI</h1></div>
 				<input type="text" placeholder="아이디(유저명)" class="form-control mt-4" id="loginIdInput">
 				<input type="password" placeholder="비밀번호" class="form-control mt-2" id="passwordInput">
-				<button type="button" class="btn btn-block mt-3 text-white" id="joinBtn">로그인</button>
+				<button type="button" class="btn btn-block mt-3 text-white" id="loginBtn">로그인</button>
 				<div class="text-center mt-3">
-					<a href="/user/join-view">회원가입</a>
+					<a href="/user/join">회원가입</a>
 				</div>
 			</div>
 		</section>
 		<footer></footer>
 	</div>
-	<script>
+	
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	
+<script>
 	$(document).ready(function() {
+		
+		//$("loginBtn").on("click", function() {
+		// $("loginForm").on("submit", function(e) {
+			
+			// form 태그가 가진 페이지 이동 기능을 막자
+			// e.preventDefault();
+		// });
+		
 		
 		$("#loginBtn").on("click", function() {
 			let loginId = $("#loginIdInput").val();
@@ -51,7 +64,7 @@
 				, success:function(data) {
 					
 					if(data.result == "success") {
-						location.href = "/post/list-view";
+						location.href = "/post/list";
 					} else {
 						alert("아이디, 비밀번호를 확인해주세요");
 					}
@@ -72,13 +85,5 @@
 
 </script>
 
-
-
-
-
-
-<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>

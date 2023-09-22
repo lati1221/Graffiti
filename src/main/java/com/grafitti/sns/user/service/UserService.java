@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.grafitti.sns.common.EncryptUtils;
+import com.grafitti.sns.user.common.EncryptUtils;
 import com.grafitti.sns.user.domain.User;
 import com.grafitti.sns.user.repository.UserRepository;
 
