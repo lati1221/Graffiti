@@ -17,9 +17,11 @@
 		<section class="contents d-flex justify-content-center">
 			<div class="input-box my-5">
 				<div id="title" class="text-center"><h1>GRAFFITI</h1></div>
-				<input type="text" placeholder="아이디(유저명)" class="form-control mt-4" id="loginIdInput">
-				<input type="password" placeholder="비밀번호" class="form-control mt-2" id="passwordInput">
-				<button type="button" class="btn btn-block mt-3 text-white" id="loginBtn">로그인</button>
+						<form id="loginForm">
+							<input type="text" placeholder="아이디(유저명)" class="form-control mt-4" id="loginIdInput">
+							<input type="password" placeholder="비밀번호" class="form-control mt-2" id="passwordInput">
+							<button type="submit" class="btn btn-block mt-3 text-white" id="loginBtn">로그인</button>
+						</form>
 				<div class="text-center mt-3">
 					<a href="/user/join">회원가입</a>
 				</div>
@@ -35,15 +37,11 @@
 <script>
 	$(document).ready(function() {
 		
-		//$("loginBtn").on("click", function() {
-		// $("loginForm").on("submit", function(e) {
-			
-			// form 태그가 가진 페이지 이동 기능을 막자
-			// e.preventDefault();
-		// });
-		
-		
-		$("#loginBtn").on("click", function() {
+		// $("#loginBtn").on("click", function() {
+		  $("#loginForm").on("submit", function(e) {
+			  
+			  e.preventDefault();
+				
 			let loginId = $("#loginIdInput").val();
 			let password = $("#passwordInput").val();
 			
@@ -64,7 +62,7 @@
 				, success:function(data) {
 					
 					if(data.result == "success") {
-						location.href = "/post/list";
+						location.href = "/post/view-list";
 					} else {
 						alert("아이디, 비밀번호를 확인해주세요");
 					}

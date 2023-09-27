@@ -39,8 +39,6 @@ public class UserRestController {
 			session.setAttribute("userId", user.getId());
 			session.setAttribute("userName", user.getName());
 			
-			
-			
 			resultMap.put("result", "success");
 		} else {
 			resultMap.put("result", "fail");

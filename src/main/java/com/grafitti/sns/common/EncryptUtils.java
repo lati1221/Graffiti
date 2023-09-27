@@ -1,10 +1,10 @@
-package com.grafitti.sns.user.common;
+package com.grafitti.sns.common;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class EncryptUtils {
-
+	
 public static String md5(String message) {
 		
 		
@@ -32,5 +32,5 @@ public static String md5(String message) {
 		
 	}
 	
-	
+
 }
