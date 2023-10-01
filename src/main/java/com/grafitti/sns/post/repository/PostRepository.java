@@ -12,7 +12,6 @@ public interface PostRepository {
 	
 	public int insertPost(
 			@Param("userId") int userId
-			, @Param("title")String title
 			, @Param("content") String content
 			, @Param("imagePath") String imagePath);
 	

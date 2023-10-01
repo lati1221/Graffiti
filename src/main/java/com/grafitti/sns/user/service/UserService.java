@@ -2,7 +2,6 @@ package com.grafitti.sns.user.service;
 
 import java.util.Optional;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +25,6 @@ public class UserService {
 		return user;
 	}
 	
-	
 	public User addUser(
 			String loginId
 			, String password
@@ -43,6 +41,18 @@ public class UserService {
 						.build();
 		
 		return userRepository.save(user);
+	}
+	
+	// 유효성 검사
+	public boolean isDuplicateId(String loginId) {
+		
+		int count = userRepository.countByLoginId(loginId);
+		
+		if(count == 0) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 }

@@ -22,15 +22,14 @@ public class PostRestController {
 	
 	@PostMapping("/create")
 	public Map<String, String> createMyList(
-			@RequestParam("title") String title
-			, @RequestParam("content") String content
+		 @RequestParam("content") String content
 			, @RequestParam(value="imageFile", required=false) MultipartFile file
 			, HttpSession session) {
 		
 		int userId = (Integer)session.getAttribute("userId");
 		
 		
-		int count = postService.addPost(userId, title, content, file);
+		int count = postService.addPost(userId, content, file);
 		
 		Map<String, String> resultMap = new HashMap<>();
 		

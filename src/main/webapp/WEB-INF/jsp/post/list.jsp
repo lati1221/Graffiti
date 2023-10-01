@@ -25,7 +25,7 @@
 					<thead>
 						<tr>
 							<th>No</th>
-							<th>제목</th>
+							<th>내용</th>
 							<th>날짜</th>
 						</tr>
 					</thead>
@@ -34,7 +34,7 @@
 						<c:forEach var="post" items="${postList }">
 						<tr>
 							<td>${post.id }</td>
-							<td><a href="/post/detail-view?id=${post.id }">${post.title }</a></td>
+							<td><a href="/post/view-detail?id=${post.id }">${post.content }</a></td>
 							<td><fmt:formatDate value="${post.createdAt }" pattern="yyyy-MM-dd HH:mm:ss" /></td>
 						</tr>
 						</c:forEach>
@@ -44,7 +44,7 @@
 				</table>
 				
 				<div class="d-flex justify-content-end">
-					<a href="/post/create-view" class="btn btn-secondary">글 쓰기</a>
+					<a href="/post/view-create" class="btn btn-secondary">글 쓰기</a>
 				
 				</div>
 			</div>

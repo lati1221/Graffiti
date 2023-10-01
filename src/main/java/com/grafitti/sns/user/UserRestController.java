@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -49,9 +50,6 @@ public class UserRestController {
 	
 	
 	
-	
-	
-	
 	@PostMapping("/join")
 	public Map<String, String> join(
 		@RequestParam("loginId") String loginId
@@ -70,7 +68,28 @@ public class UserRestController {
 		
 		return resultMap;
 	}
+	
+	// 유효성 검사 
+	@GetMapping("/duplicate-id")
+	public Map<String, Boolean> duplicateId(@RequestParam("loginId") String loginId) {
+		
+		boolean isDuplicate = userService.isDuplicateId(loginId);
+		
+		Map<String, Boolean> resultMap = new HashMap<>();
+		if(isDuplicate) {
+			resultMap.put("isDuplicate", true);
+		} else {
+			resultMap.put("isDuplicate", false);
+		}
+		
+		return resultMap;
+		
+	}
+	
+}
+		
+	
 		
 	
 	
-}
+

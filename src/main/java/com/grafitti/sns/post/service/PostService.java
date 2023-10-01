@@ -16,13 +16,13 @@ public class PostService {
 	@Autowired
 	private PostRepository postRepository;
 	
-	public int addPost(int userId, String title, String content, MultipartFile file) {
+	public int addPost(int userId, String content, MultipartFile file) {
 		
 		
 		String imagePath = FileManager.saveFile(userId, file);
 		
 		
-		return postRepository.insertPost(userId, title, content, imagePath);
+		return postRepository.insertPost(userId, content, imagePath);
 		
 	}
 	
