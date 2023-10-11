@@ -15,10 +15,6 @@ public interface PostRepository {
 			, @Param("content") String content
 			, @Param("imagePath") String imagePath);
 	
-	
-	public List<Post> selectPostList(@Param("userId") int userId);
-	
-	public Post selectPost(@Param("id") int id);
-	
+	public List<Post> selectPostList();
 
 }

@@ -1,5 +1,9 @@
 package com.grafitti.sns.post.dto;
 
+import java.util.List;
+
+import com.grafitti.sns.comment.dto.CommentDetail;
+
 import lombok.Builder;
 import lombok.Getter;
 
@@ -12,6 +16,9 @@ public class PostDetail {
 	private String loginId;
 	private String content;
 	private String imagePath;
+	private int likeCount;
+	private boolean isLike;
+	private List<CommentDetail> commentList;
 	
 	
 	
