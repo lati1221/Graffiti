@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.grafitti.sns.comment.domain.Comment;
+import com.grafitti.sns.comment.dto.CommentDetail;
 import com.grafitti.sns.comment.service.CommentService;
 import com.grafitti.sns.common.FileManager;
 import com.grafitti.sns.like.service.LikeService;
@@ -48,11 +48,11 @@ public class PostService {
 			
 			int userId = post.getUserId();
 			User user = userService.getUserById(userId);
-			// 좋아요 개수 조회 
+			
 			int likeCount = likeService.countLike(post.getId());
 			boolean isLike = likeService.isLike(post.getId(), loginUserId);
 			
-			List<Comment> commentList = commentService.getCommentList(post.getId());
+			List<CommentDetail> commentList = commentService.getCommentList(post.getId());
 			
 			PostDetail postDetail = PostDetail.builder()
 									.id(post.getId())

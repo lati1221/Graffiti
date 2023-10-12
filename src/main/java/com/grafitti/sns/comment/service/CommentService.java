@@ -20,14 +20,14 @@ public class CommentService {
 	private CommentRepository commentRepository;
 	
 	@Autowired
-	private UserService userSerive;
+	private UserService userService;
 	
 	public int addComment(int userId, int postId, String content) {
 		
 		return commentRepository.insertComment(userId, postId, content);
 	}
 	
-	public List<Comment> getCommentList(int postId) {
+	public List<CommentDetail> getCommentList(int postId) {
 		
 		List<Comment> commentList = commentRepository.selectCommentList(postId);
 		

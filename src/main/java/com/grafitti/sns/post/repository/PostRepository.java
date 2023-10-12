@@ -9,12 +9,13 @@ import com.grafitti.sns.post.domain.Post;
 
 @Repository
 public interface PostRepository {
-	
+
 	public int insertPost(
 			@Param("userId") int userId
 			, @Param("content") String content
 			, @Param("imagePath") String imagePath);
 	
 	public List<Post> selectPostList();
+
 
 }

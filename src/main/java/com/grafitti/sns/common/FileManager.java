@@ -18,23 +18,20 @@ public class FileManager {
 		if(file == null) {
 			return null;
 		}
-		
+
 		
 		String directoryName = "/" + userId + "_" + System.currentTimeMillis();
-		
-	
+
 		
 		String directoryPath = FILE_UPLOAD_PATH + directoryName;
 		
 		File directory = new File(directoryPath);
 		
 		if(!directory.mkdir()) {
-			
 			return null;
-			
 		}
 		
-		
+	
 		String filePath = directoryPath + "/" + file.getOriginalFilename();
 		
 		try {
@@ -47,13 +44,13 @@ public class FileManager {
 			
 			e.printStackTrace();
 			
-			
+		
 			return null;
 		}
 		
 		
 		return "/images" + directoryName + "/" + file.getOriginalFilename();
-
+		
 	}
 
 }
