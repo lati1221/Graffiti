@@ -31,4 +31,7 @@ public class LikeService {
 		return count != 0;
 	}
 
+	public int deleteLikeByPostId(int postId) {
+		
+	}
 }

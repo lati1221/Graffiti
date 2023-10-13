@@ -42,5 +42,4 @@
 			AND `userId` = #{userId}
 	</select>
 
-
 </mapper>
