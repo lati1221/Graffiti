@@ -25,7 +25,7 @@ public static String md5(String message) {
 		} catch (NoSuchAlgorithmException e) {
 			
 			e.printStackTrace();
-			return null;
+			
 		}
 		
 		return resultString;

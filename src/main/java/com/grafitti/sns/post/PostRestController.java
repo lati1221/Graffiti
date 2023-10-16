@@ -23,9 +23,24 @@ public class PostRestController {
 	private PostService postService;
 	
 	@DeleteMapping("/delete")
-	public Map<String, String>deletePost(@RequestParam("postId") int postId) {
+	public Map<String, String> deletePost(
+			@RequestParam("postId") int postId
+			, HttpSession session) {
 		
+		int userId = (Integer)session.getAttribute("userId");
+		int count = postService.deletePost(postId, userId);
+		
+		Map<String, String> resultMap = new HashMap<>();
+		
+		if(count == 1) {
+			resultMap.put("result", "success");
+		} else {
+			resultMap.put("result", "fail");
+		}
+		
+		return resultMap;
 	}
+	
 	
 	@PostMapping("/create")
 	public Map<String, String> createPost(
@@ -46,6 +61,4 @@ public class PostRestController {
 		
 		return resultMap;
 	}
-	
-
 }

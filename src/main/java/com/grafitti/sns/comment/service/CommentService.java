@@ -38,22 +38,23 @@ public class CommentService {
 			User user = userService.getUserById(userId);
 			
 			CommentDetail commentDetail = CommentDetail.builder()
-						.id(comment.getId())
-						.userId(comment.getUserId())
-						.content(comment.getContent())
-						.loginId(user.getLoginId())
-						.build();
-			
+													.id(comment.getId())
+													.userId(comment.getUserId())
+													.content(comment.getContent())
+													.loginId(user.getLoginId())
+													.build();
 			
 			commentDetailList.add(commentDetail);
 			
 		}
 		
 		return commentDetailList;
+		
 	}
 	
 	public int deleteCommentByPostId(int postId) {
 		return commentRepository.deleteCommentByPost(postId);
 	}
-
+	
+	
 }

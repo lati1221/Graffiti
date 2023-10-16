@@ -32,21 +32,27 @@ public class PostService {
 	@Autowired
 	private CommentService commentService;
 	
-	public int deletePost(int postId) {
+	public int deletePost(int postId, int userId) {
 		
-		// 첨부된 파일 삭제
+		// 첨부된 파일 삭제 
 		Post post = postRepository.selectPost(postId);
+		
+		if(post.getUserId() != userId) {
+			return 0;
+		}
 		
 		FileManager.removeFile(post.getImagePath());
 		
 		// 댓글 삭제
 		commentService.deleteCommentByPostId(postId);
-
+		
 		// 좋아요 삭제
+		likeService.deleteLikeByPostId(postId);
 		
 		return postRepository.deletePost(postId);
 		
 	}
+	
 	
 	public int addPost(int userId, String content, MultipartFile file) {
 		
@@ -65,6 +71,7 @@ public class PostService {
 			int userId = post.getUserId();
 			User user = userService.getUserById(userId);
 			
+			// 좋아요 개수 조회 
 			int likeCount = likeService.countLike(post.getId());
 			boolean isLike = likeService.isLike(post.getId(), loginUserId);
 			
@@ -87,5 +94,4 @@ public class PostService {
 		return postDetailList;
 		
 	}
-
 }

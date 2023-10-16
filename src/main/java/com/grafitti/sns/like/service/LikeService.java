@@ -22,16 +22,14 @@ public class LikeService {
 	public boolean isLike(int postId, int userId) {
 		int count = likeRepository.selectCountLikeByUserId(postId, userId);
 		
-//		if(count == 0) {
-//			return false;
-//		} else {
-//			return true;
-//		}
-		
 		return count != 0;
 	}
-
+	
 	public int deleteLikeByPostId(int postId) {
-		
+		return likeRepository.deleteLikeByPostId(postId);
+	}
+	
+	public int deleteLikeByPostIdAndUserId(int postId, int userId) {
+		return likeRepository.deleteLikeByPostIdAndUserId(postId, userId);
 	}
 }

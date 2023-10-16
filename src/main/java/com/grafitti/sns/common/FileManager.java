@@ -10,28 +10,31 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class FileManager {
 	
-	public final static String FILE_UPLOAD_PATH = "D:\\ByungJeLee\\springProject\\upload\\graffiti";
+	public final static String FILE_UPLOAD_PATH = "C:\\Users\\user\\Downloads\\lombok\\upload\\memo";
 	
 	
-	public static String saveFile(int userId, MultipartFile file) {
+public static String saveFile(int userId, MultipartFile file) {
 		
 		if(file == null) {
 			return null;
 		}
-
+		
+		
 		
 		String directoryName = "/" + userId + "_" + System.currentTimeMillis();
-
+		
+		
 		
 		String directoryPath = FILE_UPLOAD_PATH + directoryName;
 		
 		File directory = new File(directoryPath);
 		
 		if(!directory.mkdir()) {
+			
 			return null;
 		}
 		
-	
+		
 		String filePath = directoryPath + "/" + file.getOriginalFilename();
 		
 		try {
@@ -44,13 +47,58 @@ public class FileManager {
 			
 			e.printStackTrace();
 			
-		
+	
 			return null;
 		}
+		
 		
 		
 		return "/images" + directoryName + "/" + file.getOriginalFilename();
 		
 	}
-
+	
+	
+	public static boolean removeFile(String filePath) {  ///images/2_9140918290/test.png
+		
+		if(filePath == null) {
+			return false;
+		}
+		
+		 
+		String fullFilePath = FILE_UPLOAD_PATH + filePath.replace("/images", "");
+		
+		
+		Path path = Paths.get(fullFilePath);
+		
+		
+		if(Files.exists(path)) {
+			
+			try {
+				Files.delete(path);
+			} catch (IOException e) {
+				e.printStackTrace();
+				
+				return false;
+			}
+		}
+		
+		Path dirPath = path.getParent();
+		
+		
+		if(Files.exists(dirPath)) {
+			
+			try {
+				Files.delete(dirPath);
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+				
+				return false;
+			}
+		}
+		
+		return true;
+		
+		
+	}
 }
